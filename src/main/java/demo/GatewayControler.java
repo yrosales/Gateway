@@ -28,18 +28,24 @@ class GatewayControler {
 	}
 	// end::get-aggregate-root[]
 	
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value="/gateways")
 	Gateway newGateway(@RequestBody Gateway newGateway) {
 		return gatewayRepository.save(newGateway);
 	}
 
 	// Single item
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/gateways/{serial}")
 	Gateway one(@PathVariable String serial) {
 		return gatewayRepository.findById(serial)
 	    .orElseThrow(() -> new GatewayNotFoundException(serial));
 	}
 
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/gateways/{serial}")
 	Gateway replaceGateway(@RequestBody Gateway newGateway, @PathVariable String serial) { 
 	  return gatewayRepository.findById(serial)
@@ -54,6 +60,8 @@ class GatewayControler {
     	});
 	}
 
+
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/gateways/{serial}")
 	void deleteGateway(@PathVariable String serial) {
 		gatewayRepository.deleteById(serial);
