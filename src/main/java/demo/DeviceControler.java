@@ -2,6 +2,7 @@ package demo;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ class DeviceControler {
 	}
 	// end::get-aggregate-root[]
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/devices")
 	Device newDevice(@RequestBody Device newDevice) {
 		return deviceRepository.save(newDevice);
