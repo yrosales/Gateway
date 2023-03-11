@@ -2,6 +2,6 @@ package demo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-interface DeviceRepository extends JpaRepository<Device, Long>{
+interface DeviceRepository extends JpaRepository<Device, Long> {
 
 }
